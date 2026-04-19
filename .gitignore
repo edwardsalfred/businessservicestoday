@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+.env
+.env.local
+.playwright-mcp/
+*.png
+!site/assets/**/*.png

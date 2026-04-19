@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Business Services Today — Competitive Analysis Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f4f0;
+    --cream: #fffefa;
+    --ink: #1a1f26;
+    --stone: #6f6a62;
+    --hairline: #e5dfd3;
+    --terracotta: #c45d3e;
+    --gold: #c9962b;
+    --navy: #0b2545;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 16px;
+    position: relative;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0.08 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .page { max-width: 920px; margin: 0 auto; padding: 72px 56px; position: relative; z-index: 2; }
+  h1, h2, h3, h4 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; }
+  h1 { font-size: clamp(48px, 7vw, 78px); }
+  h2 { font-size: clamp(32px, 4.5vw, 48px); }
+  h3 { font-size: clamp(24px, 3vw, 32px); }
+  p { color: var(--stone); max-width: 68ch; }
+  .muted { color: var(--stone); }
+  .cover {
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 56px;
+    margin-bottom: 72px;
+  }
+  .cover .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    padding: 8px 16px;
+    border: 1px solid var(--terracotta);
+    border-radius: 999px;
+    margin-bottom: 32px;
+  }
+  .cover h1 { margin-bottom: 24px; }
+  .cover .subtitle { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; color: var(--stone); margin-bottom: 40px; }
+  .cover .meta { display: flex; gap: 48px; flex-wrap: wrap; font-size: 14px; color: var(--stone); }
+  .cover .meta div strong { color: var(--ink); display: block; font-weight: 600; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  section { margin-bottom: 72px; position: relative; }
+  .section-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 120px;
+    color: var(--hairline);
+    line-height: 1;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: 0;
+    user-select: none;
+  }
+  .section-head { position: relative; z-index: 1; margin-bottom: 32px; }
+  .section-head h2 { margin-bottom: 12px; }
+  .lead { font-size: 20px; font-family: 'Instrument Serif', serif; font-style: italic; color: var(--stone); max-width: 60ch; margin-bottom: 32px; }
+  .card {
+    background: var(--cream);
+    border: 1px solid var(--hairline);
+    border-left: 4px solid var(--terracotta);
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card:hover { box-shadow: 0 10px 40px -12px rgba(26,31,38,0.15); transform: translateY(-2px); }
+  .card h3 { margin-bottom: 8px; }
+  .card .rank { font-size: 11px; color: var(--terracotta); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px; }
+  .swatches { display: flex; gap: 8px; margin: 16px 0 20px; }
+  .swatch { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--hairline); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .tag { display: inline-block; padding: 5px 12px; background: var(--paper); border: 1px solid var(--hairline); border-radius: 999px; font-size: 12px; color: var(--stone); }
+  .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+  .score-cell { background: var(--paper); padding: 10px 12px; border-radius: 4px; border: 1px solid var(--hairline); }
+  .score-cell .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--stone); margin-bottom: 2px; }
+  .score-cell .value { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--ink); }
+  table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; background: var(--cream); border: 1px solid var(--hairline); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--hairline); }
+  th { font-weight: 600; background: var(--paper); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone); }
+  td.center { text-align: center; }
+  .total { font-weight: 700; color: var(--terracotta); }
+  ul.insights { list-style: none; }
+  ul.insights li {
+    padding: 20px 0 20px 44px;
+    position: relative;
+    border-bottom: 1px solid var(--hairline);
+    color: var(--ink);
+  }
+  ul.insights li:last-child { border-bottom: none; }
+  ul.insights li::before {
+    counter-increment: insight;
+    content: counter(insight);
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 28px;
+    height: 28px;
+    background: var(--terracotta);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  ul.insights { counter-reset: insight; }
+  ul.insights strong { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 20px; color: var(--ink); display: block; margin-bottom: 4px; }
+  .connector { height: 48px; display: flex; justify-content: center; align-items: center; }
+  .connector svg { width: 2px; height: 100%; }
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+    font-size: 13px;
+    color: var(--stone);
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 40px 24px; }
+    .score-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-num { font-size: 72px; top: -10px; }
+    .cover .meta { gap: 24px; }
+    table { font-size: 12px; }
+    th, td { padding: 8px; }
+  }
+  @media print {
+    body { background: white; }
+    body::before { display: none; }
+    .page { padding: 32px 40px; max-width: 100%; }
+    .card:hover { transform: none; box-shadow: none; }
+    section { break-inside: avoid; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <span class="eyebrow">Competitive Analysis</span>
+    <h1>Where Business Services Today wins — and where the field is weak.</h1>
+    <p class="subtitle">A market study of the Texas LLC formation niche, prepared for The Whitener Group LLC.</p>
+    <div class="meta">
+      <div><strong>Client</strong>Business Services Today</div>
+      <div><strong>Prepared</strong>April 2026</div>
+      <div><strong>Scope</strong>Top 10 competitors scored · Top 5 profiled</div>
+      <div><strong>Confidential</strong>Client copy only</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-num">01</div>
+    <div class="section-head">
+      <h2>Executive summary</h2>
+    </div>
+    <p class="lead">
+      The Texas LLC formation niche is dominated by five national SaaS players with near-identical design languages. Business Services Today has three structural advantages none of them can copy.
+    </p>
+    <p>
+      BST's Weebly-era site buries its biggest strengths — the physical Corporate Identity Binder, Houston family-run service, and veteran SB 938 specialization — under a flat list of services and dated templates. The rebuild positions BST as the editorial, Texas-first alternative to ZenBusiness and LegalZoom: warm paper tones, navy + gold, serif headlines, and photography of the actual binder. The playbook that follows is grounded in scoring the top ten names in the niche and deep-profiling the top five.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-num">02</div>
+    <div class="section-head">
+      <h2>The top five, profiled</h2>
+      <p class="muted">Each company scored against eight criteria on a 1–10 scale. Total out of 80.</p>
+    </div>
+
+    <div class="card">
+      <div class="rank">Rank 01 · Total 77</div>
+      <h3>ZenBusiness</h3>
+      <p>Headline "Business is complicated. We make it easy" with a three-pillar value prop (Start, Protect, Grow). Teal / emerald on white, clean SaaS minimalism, 4.8★ Trustpilot with 28,830 reviews. Pricing is transparent: Starter $0, Pro $199, Premium $399. Weak on human warmth — reads as a platform, not a team.</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#00a88c"></div>
+        <div class="swatch" style="background:#0c2340"></div>
+        <div class="swatch" style="background:#ffffff;border-color:#ddd"></div>
+      </div>
+      <div class="score-grid">
+        <div class="score-cell"><div class="label">Search</div><div class="value">10</div></div>
+        <div class="score-cell"><div class="label">Reviews</div><div class="value">10</div></div>
+        <div class="score-cell"><div class="label">Design</div><div class="value">9</div></div>
+        <div class="score-cell"><div class="label">Mobile</div><div class="value">10</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Category leader</span>
+        <span class="tag">SaaS aesthetic</span>
+        <span class="tag">Low human warmth</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rank">Rank 02 · Total 73</div>
+      <h3>LegalZoom</h3>
+      <p>Headline "Legal solutions trusted by millions, designed for you." Three support models — guided tools, attorney guidance, specialist consultation. Minimalist modern with blue accents and real-people photography. "1M+ legal milestones supported." Enterprise-feeling, less warm than the boutique players.</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#0073e6"></div>
+        <div class="swatch" style="background:#1a1a2e"></div>
+        <div class="swatch" style="background:#f7f7f7;border-color:#ddd"></div>
+      </div>
+      <div class="score-grid">
+        <div class="score-cell"><div class="label">Search</div><div class="value">10</div></div>
+        <div class="score-cell"><div class="label">Reviews</div><div class="value">8</div></div>
+        <div class="score-cell"><div class="label">Design</div><div class="value">9</div></div>
+        <div class="score-cell"><div class="label">Mobile</div><div class="value">9</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Household name</span>
+        <span class="tag">Lifestyle photography</span>
+        <span class="tag">Enterprise feel</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rank">Rank 03 · Total 73</div>
+      <h3>Bizee (formerly Incfile)</h3>
+      <p>"Start Your Business With Confidence." Headquartered in Houston — the only direct local competitor. 4.7★ Trustpilot with 25,209 reviews, bilingual support, free formation tier. Clean blue-and-neutral palette. Strong on reassurance, weak on local-specific storytelling.</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#0055ff"></div>
+        <div class="swatch" style="background:#002b5b"></div>
+        <div class="swatch" style="background:#fafafa;border-color:#ddd"></div>
+      </div>
+      <div class="score-grid">
+        <div class="score-cell"><div class="label">Search</div><div class="value">9</div></div>
+        <div class="score-cell"><div class="label">Reviews</div><div class="value">9</div></div>
+        <div class="score-cell"><div class="label">Design</div><div class="value">9</div></div>
+        <div class="score-cell"><div class="label">Mobile</div><div class="value">9</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Houston HQ</span>
+        <span class="tag">Free tier anchor</span>
+        <span class="tag">No local story</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rank">Rank 04 · Total 70</div>
+      <h3>Tailor Brands</h3>
+      <p>LLC + logo + brand bundle. Most design-forward of the group — bold colors, modern typography, illustration-heavy. Positioned for solo creators and influencers, which dilutes credibility for serious business owners.</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#ff4d4f"></div>
+        <div class="swatch" style="background:#1c1c1c"></div>
+        <div class="swatch" style="background:#ffeaea"></div>
+      </div>
+      <div class="score-grid">
+        <div class="score-cell"><div class="label">Search</div><div class="value">8</div></div>
+        <div class="score-cell"><div class="label">Reviews</div><div class="value">8</div></div>
+        <div class="score-cell"><div class="label">Design</div><div class="value">10</div></div>
+        <div class="score-cell"><div class="label">Mobile</div><div class="value">10</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Design-forward</span>
+        <span class="tag">Creator niche</span>
+        <span class="tag">Less authoritative</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="rank">Rank 05 · Total 69</div>
+      <h3>Northwest Registered Agent</h3>
+      <p>"Privacy by Default" — personal service over automation, 200 Corporate Guides on staff. Traditional legal-site navy + red palette, dense typography. Weak visual refresh but strong customer-service story.</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#1f3a5f"></div>
+        <div class="swatch" style="background:#b83030"></div>
+        <div class="swatch" style="background:#f5f5f5;border-color:#ddd"></div>
+      </div>
+      <div class="score-grid">
+        <div class="score-cell"><div class="label">Search</div><div class="value">10</div></div>
+        <div class="score-cell"><div class="label">Reviews</div><div class="value">10</div></div>
+        <div class="score-cell"><div class="label">Design</div><div class="value">7</div></div>
+        <div class="score-cell"><div class="label">Mobile</div><div class="value">8</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag">Human-first</span>
+        <span class="tag">Dated visuals</span>
+        <span class="tag">Privacy angle</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg><line x1="1" y1="0" x2="1" y2="48" stroke="#c45d3e" stroke-width="1.5" stroke-dasharray="4 6"/></svg></div>
+
+  <section>
+    <div class="section-num">03</div>
+    <div class="section-head">
+      <h2>The scoreboard</h2>
+      <p class="muted">Every name ranked across eight criteria.</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Company</th>
+          <th class="center">Search</th>
+          <th class="center">Reviews</th>
+          <th class="center">Design</th>
+          <th class="center">Mobile</th>
+          <th class="center">Depth</th>
+          <th class="center">Proof</th>
+          <th class="center">CTA</th>
+          <th class="center">Speed</th>
+          <th class="center">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>ZenBusiness</td><td class="center">10</td><td class="center">10</td><td class="center">9</td><td class="center">10</td><td class="center">10</td><td class="center">10</td><td class="center">9</td><td class="center">9</td><td class="center total">77</td></tr>
+        <tr><td>2</td><td>LegalZoom</td><td class="center">10</td><td class="center">8</td><td class="center">9</td><td class="center">9</td><td class="center">10</td><td class="center">10</td><td class="center">9</td><td class="center">8</td><td class="center total">73</td></tr>
+        <tr><td>3</td><td>Bizee</td><td class="center">9</td><td class="center">9</td><td class="center">9</td><td class="center">9</td><td class="center">9</td><td class="center">10</td><td class="center">9</td><td class="center">9</td><td class="center total">73</td></tr>
+        <tr><td>4</td><td>Tailor Brands</td><td class="center">8</td><td class="center">8</td><td class="center">10</td><td class="center">10</td><td class="center">8</td><td class="center">8</td><td class="center">9</td><td class="center">9</td><td class="center total">70</td></tr>
+        <tr><td>5</td><td>Northwest RA</td><td class="center">10</td><td class="center">10</td><td class="center">7</td><td class="center">8</td><td class="center">9</td><td class="center">9</td><td class="center">8</td><td class="center">8</td><td class="center total">69</td></tr>
+        <tr><td>6</td><td>LLC University</td><td class="center">8</td><td class="center">9</td><td class="center">7</td><td class="center">8</td><td class="center">10</td><td class="center">9</td><td class="center">7</td><td class="center">9</td><td class="center total">67</td></tr>
+        <tr><td>7</td><td>Wolters Kluwer</td><td class="center">7</td><td class="center">7</td><td class="center">7</td><td class="center">8</td><td class="center">8</td><td class="center">7</td><td class="center">7</td><td class="center">7</td><td class="center total">58</td></tr>
+        <tr><td>8</td><td>MyCompanyWorks</td><td class="center">6</td><td class="center">8</td><td class="center">6</td><td class="center">7</td><td class="center">7</td><td class="center">7</td><td class="center">7</td><td class="center">8</td><td class="center total">56</td></tr>
+        <tr><td>9</td><td>BusinessRocket</td><td class="center">5</td><td class="center">7</td><td class="center">7</td><td class="center">8</td><td class="center">7</td><td class="center">7</td><td class="center">7</td><td class="center">8</td><td class="center total">56</td></tr>
+        <tr><td>10</td><td>TX Vets Two-Step</td><td class="center">5</td><td class="center">7</td><td class="center">6</td><td class="center">7</td><td class="center">8</td><td class="center">7</td><td class="center">7</td><td class="center">7</td><td class="center total">54</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="section-num">04</div>
+    <div class="section-head">
+      <h2>Patterns of the top 10%</h2>
+      <p class="muted">Five moves every winning site makes that the bottom of the pack skips.</p>
+    </div>
+    <ul class="insights">
+      <li>
+        <strong>Name the outcome, not the service.</strong>
+        Every winner leads with transformation — "Start your business with confidence", "We make it easy" — not "LLC filing services." BST's current site leads with the mechanic.
+      </li>
+      <li>
+        <strong>Pricing visible, not hidden behind a form.</strong>
+        All five top sites show tier pricing on the homepage or one click in. BST buries $558 / $750 in a mid-page checkout button — a conversion killer.
+      </li>
+      <li>
+        <strong>Show social proof where friction spikes.</strong>
+        Star ratings and review counts appear in the nav, near CTAs, and inside pricing cards — not only in a testimonial band at the bottom.
+      </li>
+      <li>
+        <strong>Three pillars, never more.</strong>
+        Start / Protect / Grow. Form / File / Forward. Top sites reduce complexity to exactly three ideas. BST currently lists 10+ services flat — no hierarchy.
+      </li>
+      <li>
+        <strong>Prove humanity with faces and names.</strong>
+        Northwest names its 200 Corporate Guides. LegalZoom photographs real entrepreneurs. BST's untapped moats — family-run, Houston, physical binder — live or die on showing actual humans and actual product.
+      </li>
+    </ul>
+  </section>
+
+  <div class="connector"><svg><line x1="1" y1="0" x2="1" y2="48" stroke="#c45d3e" stroke-width="1.5" stroke-dasharray="4 6"/></svg></div>
+
+  <section>
+    <div class="section-num">05</div>
+    <div class="section-head">
+      <h2>SEO landscape</h2>
+      <p class="muted">Where BST can realistically win traffic.</p>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Keyword</th><th class="center">Volume</th><th class="center">Competition</th><th>Angle</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>texas llc formation</td><td class="center">High</td><td class="center">Very high</td><td>Can't outrank SaaS — go long-tail.</td></tr>
+        <tr><td>texas veteran llc free</td><td class="center">Medium</td><td class="center">Low</td><td><strong style="color:var(--terracotta)">Strong opportunity</strong> · SB 938 expert</td></tr>
+        <tr><td>corporate identity binder texas</td><td class="center">Low</td><td class="center">Very low</td><td><strong style="color:var(--terracotta)">Own it</strong> · category-of-one keyword</td></tr>
+        <tr><td>houston llc formation service</td><td class="center">Medium</td><td class="center">Medium</td><td>Local SEO play, Google Business</td></tr>
+        <tr><td>sb 938 veteran llc texas</td><td class="center">Low</td><td class="center">Low</td><td><strong style="color:var(--terracotta)">Own it</strong> · dedicated page</td></tr>
+        <tr><td>300 grants list nonprofit</td><td class="center">Low</td><td class="center">Low</td><td>Grant PDF as lead magnet</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="section-num">06</div>
+    <div class="section-head">
+      <h2>Recommended design direction</h2>
+      <p class="muted">How the rebuild turns BST's moats into visual language.</p>
+    </div>
+
+    <div class="card">
+      <h3>Color</h3>
+      <p>Deep navy (<code>#0B2545</code>) for authority, warm gold (<code>#C9962B</code>) for the premium binder motif, burnt orange (<code>#C45D3E</code>) for CTAs, served on a warm paper background (<code>#F6F2EC</code>). Deliberately the opposite of competitor teal-and-white.</p>
+      <div class="swatches">
+        <div class="swatch" style="background:#0B2545"></div>
+        <div class="swatch" style="background:#C9962B"></div>
+        <div class="swatch" style="background:#C45D3E"></div>
+        <div class="swatch" style="background:#F6F2EC;border-color:#ddd"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Typography</h3>
+      <p>Fraunces (variable serif) for headings — editorial authority, pairs with the physical binder premium positioning. Inter for body — strong legibility at small sizes. A combination none of the top five use.</p>
+      <div class="tags">
+        <span class="tag">Fraunces · headings</span>
+        <span class="tag">Inter · body</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Architecture</h3>
+      <p>Six public pages — Home, LLC, Veteran, Grants, About, Contact — anchored by a three-pillar value prop (Filed · Bound · Backed). Pricing visible above the fold. Veteran SB 938 pathway gets its own band and dedicated page.</p>
+    </div>
+
+    <div class="card">
+      <h3>Motion</h3>
+      <p>GSAP + ScrollTrigger. Fade + slide on every section entrance, parallax on the binder hero, hover-lift on pricing cards. <code>prefers-reduced-motion</code> respected throughout. Cinematic but not gimmicky.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>Business Services Today · The Whitener Group LLC · Houston, TX</div>
+    <div>Confidential · Prepared April 2026</div>
+    <div style="width: 100%; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--hairline); text-align: center; font-size: 12px; letter-spacing: 0.08em;">
+      Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener" style="color: var(--terracotta); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--terracotta);">Chatbot Boy AI</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
